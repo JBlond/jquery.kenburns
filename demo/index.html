@@ -21,40 +21,46 @@
 $(document).ready(function() {
 	$('img', '#img').kenburns({debug: true});
 
-	$('#reset').submit(function() {
-		var settings = {
-			'zoom': $('select[name=zoom] option:selected', this).val(),
-			'duration': $('input[name=duration]', this).val(),
-			'align': $('select[name=aligment] option:selected', this).val()
-		};
+	$('#reset').on({
+		submit: function() {
+			let settings = {
+				'zoom': $('select[name=zoom] option:selected', this).val(),
+				'duration': $('input[name=duration]', this).val(),
+				'align': $('select[name=aligment] option:selected', this).val()
+			};
 
-		$('img', '#img').kenburns('set', settings).kenburns('reset');
+			$('img', '#img').kenburns('set', settings).kenburns('reset');
 
-		return false;
-	});
-
-	$('#pause').click(function() {
-		if ($(this).hasClass('paused')) {
-			$(this).removeClass('paused').val('Pause');
-			$('img', '#img').kenburns('start');
-		} else {
-			$(this).addClass('paused').val('Continue');
-			$('img', '#img').kenburns('pause');
+			return false;
 		}
 	});
 
-	$('#stop').click(function() {
-		if ($(this).hasClass('stopped')) {
-			$(this).removeClass('stopped').val('Stop');
-			$('img', '#img').kenburns('start');
-		} else {
-			$(this).addClass('stopped').val('Start');
-			$('img', '#img').kenburns('stop');
+	$('#pause').on({
+		click: function() {
+			if ($(this).hasClass('paused')) {
+				$(this).removeClass('paused').val('Pause');
+				$('img', '#img').kenburns('start');
+			} else {
+				$(this).addClass('paused').val('Continue');
+				$('img', '#img').kenburns('pause');
+			}
+		}
+	});
+
+	$('#stop').on({
+		click: function() {
+			if ($(this).hasClass('stopped')) {
+				$(this).removeClass('stopped').val('Stop');
+				$('img', '#img').kenburns('start');
+			} else {
+				$(this).addClass('stopped').val('Start');
+				$('img', '#img').kenburns('stop');
+			}
 		}
 	});
 });
 </script>
-<style type="text/css">
+<style>
 .container {
 	margin: 0 auto;
 	max-width: 960px;
@@ -117,7 +123,7 @@ $(document).ready(function() {
 		</form>
 
 		<footer>
-			<p>Made by <a href="http://twitter.com/firmanw">@firmanw</a> &amp; <a href="http://twitter.com/codapixa">@codapixa</a>. Fork me on <a href="https://github.com/codapixa/jquery.kenburns">Github</a></p>
+			<p>Fork me on <a href="https://github.com/jblond/jquery.kenburns">Github</a></p>
 		</footer>
 	</div>
 </div>

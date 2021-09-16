@@ -16,7 +16,9 @@
     "test": "grunt jshint"
   },
   "keywords": [
-    "ARKV"
+    "kenburns",
+    "effect",
+    "photo"
   ],
   "author": "Mario Brandt",
   "license": "MIT"

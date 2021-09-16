@@ -8,7 +8,7 @@
  * Version: 0.1
  * Author: Firman W <firmanw@codapixa.com>
  *
- * Version 0.2
+ * Version 1.0.1
  * Author: https://github.com/JBlond/jquery.kenburns
  */
 (function( $ ){

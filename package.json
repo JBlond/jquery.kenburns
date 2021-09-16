@@ -1,7 +1,7 @@
 {
   "name": "kenburn",
   "version": "1.0.0",
-  "description": "kenburn",
+  "description": "kenburns effect",
   "main": "src/jquery.kenburns.js",
   "dependencies": {
     "grunt": "^0.4.5",

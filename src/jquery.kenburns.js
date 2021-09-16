@@ -57,7 +57,7 @@
 		self.canvas.width = self.options.width;
 		self.canvas.height = self.options.height;
 
-		// Set the actual position and dimesion relately to canvas
+		// Set the actual position and dimension relatively to canvas
 		self.actual.width = self.canvas.width;
 		self.actual.height = Math.floor((self.canvas.width / self.image.width) * self.image.height);
 		self.actual.x = (self.actual.width - self.canvas.width) / 2 * -1;

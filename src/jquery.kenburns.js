@@ -12,7 +12,7 @@
  * Author: https://github.com/JBlond/jquery.kenburns
  */
 (function( $ ){
-	var Kenburns = function(target, options) {
+	let Kenburns = function(target, options) {
 	this.target = target;
 	this.options = $.extend({}, this.defaults, options);
 	this.init();
@@ -38,9 +38,9 @@
 	scale: 1,
 	align: 'center',
 	init: function() {
-		var self = this;
+		let self = this;
 
-		jQuery('<img />').attr('src', jQuery(self.target).attr('src')).load(function() {
+		jQuery('<img alt=""  src=""/>').attr('src', jQuery(self.target).attr('src')).load(function() {
 		// Create Canvas element and append to target parent
 		if (self.canvas === null) {
 			// Hide the target
@@ -70,7 +70,7 @@
 		return this.canvas.getContext('2d');
 	},
 	_redraw: function() {
-		var self = this,
+		let self = this,
 			ctx = self._context();
 
 		ctx.clearRect(0, 0, self.canvas.width, self.canvas.height);
@@ -92,18 +92,18 @@
 		this.exec();
 	},
 	exec: function() {
-		var self = this,
+		let self = this,
 			ctx = self._context(),
 
 			timer = function(time) {
-			var d = new Date();
+			let d = new Date();
 
 			return d.getTime() - time;
 			},
 
 			align = function(ax, ay, aw, ah, sw, sh, alignment) {
-			var dx = 0;
-			var dy = 0;
+			let dx = 0;
+			let dy = 0;
 
 			switch (alignment) {
 				case 'top':
@@ -131,9 +131,9 @@
 			aligns = ['top', 'left', 'center', 'bottom', 'right'], // alignments
 
 			scaling = function(actual, scale, alignment) {
-			var sw = Math.floor(actual.width * scale);
-			var sh = Math.floor(actual.height * scale);
-			var a = align(actual.x, actual.y, actual.width, actual.height, sw, sh, alignment);
+			let sw = Math.floor(actual.width * scale);
+			let sh = Math.floor(actual.height * scale);
+			let a = align(actual.x, actual.y, actual.width, actual.height, sw, sh, alignment);
 
 			return {x: a.x, y: a.y, width: sw, height: sh};
 			};
@@ -154,7 +154,7 @@
 		self.state = 'animate';
 
 		self.interval = setInterval(function() {
-		var s = scaling(self.actual, self.scale, self.align),
+		let s = scaling(self.actual, self.scale, self.align),
 			passed = timer(self.time);
 
 
@@ -198,10 +198,10 @@
 	};
 
 	jQuery.fn.kenburns = function( arg ) {
-	var args = arguments;
+	let args = arguments;
 
 	return this.each(function() {
-		var instance = jQuery(this).data('kenburns') || {};
+		let instance = jQuery(this).data('kenburns') || {};
 
 		if ( instance[arg] ) {
 			return instance[arg].apply( instance, Array.prototype.slice.call( args, 1 ));

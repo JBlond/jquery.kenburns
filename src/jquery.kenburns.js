@@ -40,30 +40,30 @@
 	init: function() {
 		let self = this;
 
-		jQuery('<img alt=""  src=""/>').attr('src', jQuery(self.target).attr('src')).load(function() {
-		// Create Canvas element and append to target parent
-		if (self.canvas === null) {
-			// Hide the target
-			jQuery(self.target).hide();
+		jQuery('<img alt=""  src=""/>').attr('src', jQuery(self.target).attr('src')).on('load', function() {
+			// Create Canvas element and append to target parent
+			if (self.canvas === null) {
+				// Hide the target
+				jQuery(self.target).hide();
 
-			// Create the replacement canvas
-			self.canvas = $('<canvas />')[0];
-			jQuery(self.canvas).appendTo(jQuery(self.target).parent());
-		}
+				// Create the replacement canvas
+				self.canvas = $('<canvas />')[0];
+				jQuery(self.canvas).appendTo(jQuery(self.target).parent());
+			}
 
-		self.image = this;
+			self.image = this;
 
-		// Set the canvas dimension
-		self.canvas.width = self.options.width;
-		self.canvas.height = self.options.height;
+			// Set the canvas dimension
+			self.canvas.width = self.options.width;
+			self.canvas.height = self.options.height;
 
-		// Set the actual position and dimension relatively to canvas
-		self.actual.width = self.canvas.width;
-		self.actual.height = Math.floor((self.canvas.width / self.image.width) * self.image.height);
-		self.actual.x = (self.actual.width - self.canvas.width) / 2 * -1;
-		self.actual.y = (self.actual.height - self.canvas.height) / 2 * -1;
+			// Set the actual position and dimension relatively to canvas
+			self.actual.width = self.canvas.width;
+			self.actual.height = Math.floor((self.canvas.width / self.image.width) * self.image.height);
+			self.actual.x = (self.actual.width - self.canvas.width) / 2 * -1;
+			self.actual.y = (self.actual.height - self.canvas.height) / 2 * -1;
 
-		self.start();
+			self.start();
 		});
 	},
 	_context: function() {
